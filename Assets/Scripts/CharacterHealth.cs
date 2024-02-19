@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class CharacterHealth : CharacterPart
 {
     private const string DeathKey = "Death";
-    [SerializeField] private int _startHealthPoints = 100;
+    private int _startHealthPoints = 100;
     private Animator _animator;
     private int _healthPoints;
     private bool _isDead;
@@ -48,6 +48,4 @@ public abstract class CharacterHealth : CharacterPart
     {
         return _healthPoints;
     }
-    
-
 }

@@ -3,12 +3,8 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    private CharacterMovement _movement;
-    private CharacterAiming _aiming;
     private CharacterPart[] _parts;
-    private CharacterShooting _shooting;
     
-
     void Start()
     {
         Init();
@@ -19,7 +15,10 @@ public abstract class Character : MonoBehaviour
         _parts = GetComponents<CharacterPart>();
         for (int i = 0; i < _parts.Length; i++)
         {
-            _parts[i].Init();
+            if (_parts[i] is not null)
+            {
+                _parts[i].Init();
+            }
         }
 
         InitDeath();

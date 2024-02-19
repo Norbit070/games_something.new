@@ -2299,8 +2299,8 @@ GameObject:
   - component: {fileID: 6589757075108494159}
   - component: {fileID: 8444067616526272395}
   - component: {fileID: 2582141976875521068}
-  - component: {fileID: 5318757968749743574}
   - component: {fileID: 798508915387450010}
+  - component: {fileID: 7872135860988972489}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Player
@@ -2393,19 +2393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca99f2a4f30779448288d188402e3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5318757968749743574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5229238777843905393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c5d86e3eddac64e942997fa6ec342d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startHealthPoints: 100
 --- !u!114 &798508915387450010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2416,6 +2403,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 530d90c08bb060148b263d6fc5180365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7872135860988972489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229238777843905393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6dcfe8f8ecfbe45b6e66f434bbffe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5278157940342696964

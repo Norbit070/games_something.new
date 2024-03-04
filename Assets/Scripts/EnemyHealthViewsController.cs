@@ -10,6 +10,7 @@ public class EnemyHealthViewsController : MonoBehaviour
     [SerializeField] private Vector3 _deltaHealthViewPosition = new Vector3(0, 2.2f, 0);
     private Dictionary<CharacterHealth, CharacterHealthView> _enemyHealthViewPairs = new Dictionary<CharacterHealth, CharacterHealthView>();
     private Camera _mainCamera;
+    private EnemySpawner _enemySpawner;
     private void Start()
     {
         Init();
@@ -18,11 +19,27 @@ public class EnemyHealthViewsController : MonoBehaviour
     private void Init()
     {
         _mainCamera = Camera.main;
+        _enemySpawner = FindAnyObjectByType<EnemySpawner>();
+        CreateViewsForExistingEnemies();
+        SubscribeForFutureEnemies();
+    }
+    private void CreateViewsForExistingEnemies()
+    {
         CharacterHealth[] enemyHealths = FindObjectsOfType<EnemyHealth>();
+
         for (int i = 0; i < enemyHealths.Length; i++)
         {
             CreateEnemyHealthView(enemyHealths[i]);
         }
+    }
+    private void SubscribeForFutureEnemies()
+    {
+        _enemySpawner.OnSpawnEnemy += CreateEnemyHealthView;
+    }
+
+    private void CreateEnemyHealthView(Character enemy)
+    {
+        CreateEnemyHealthView(enemy.GetComponent<CharacterHealth>());
     }
     private void CreateEnemyHealthView(CharacterHealth health)
     {
@@ -68,7 +85,7 @@ public class EnemyHealthViewsController : MonoBehaviour
     }
     private void SetHealthViewScreenPosition(CharacterHealthView view,Vector3 worldPosition)
     {
-        view.transform.position = _mainCamera.WorldToScreenPoint(worldPosition);
+        view.transform.position = worldPosition;
     }
 
 

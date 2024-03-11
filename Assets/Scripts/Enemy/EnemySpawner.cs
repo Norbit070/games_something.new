@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
     private const float MinViewportPosition = -0.1f; 
     private const float MaxViewportPosition = 1.1f;
-    [SerializeField] private Character _enemyPrefab;
+    [SerializeField] private Character[] _enemyPrefabs;
     [SerializeField] private int _enemyCount = 10;
     [SerializeField] private float _spawnDelay = 1f;
     private EnemySpawnPoint[] _spawnPoints;
@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         EnemySpawnPoint spawnPoint = GetRandomSpawnPoint();
-        Character newEnemy = Instantiate(_enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+        Character newEnemy = Instantiate(GetRandomEnemyPrefab(), spawnPoint.transform.position, Quaternion.identity);
         _spawnedEnemyCount++;
         OnSpawnEnemy?.Invoke(newEnemy);
     }
@@ -82,5 +82,9 @@ public class EnemySpawner : MonoBehaviour
     private void ResetSpawnTimer()
     {
         _spawnTimer = _spawnDelay;
+    }
+    private Character GetRandomEnemyPrefab()
+    {
+        return _enemyPrefabs[Random.Range(0, _enemyPrefabs.Length)];
     }
 }

@@ -9,6 +9,7 @@ public class PlayerShooting : CharacterShooting
 
     protected override void OnInit()
     {
+        base.OnInit();
         _bulletSpawnPoint = GetComponentInChildren<BulletSpawnPoint>().transform;
         _bulletTimer = 0;
     }
@@ -21,6 +22,7 @@ public class PlayerShooting : CharacterShooting
         }
 
         Shooting();
+        DamageBonusing();
     }
 
     private void Shooting()
@@ -33,7 +35,7 @@ public class PlayerShooting : CharacterShooting
             {
                 _bulletTimer = 0;
 
-                SpawnBullet();
+                SpawnBullet(_bulletPrefab, _bulletSpawnPoint);
             }
         }
     }

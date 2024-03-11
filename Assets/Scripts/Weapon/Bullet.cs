@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private GameObject _hitPrefab;
     [SerializeField] private float _speed = 30f;
     [SerializeField] private float _lifeTime = 2f;
+    private int _damage;
 
     private void Update()
     {
@@ -24,7 +25,8 @@ public class Bullet : MonoBehaviour
 
     private void CheckHit()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _speed * Time.deltaTime))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, _speed * Time.deltaTime)
+            && !hit.collider.isTrigger)
         {
             Hit(hit);
         }
@@ -49,10 +51,14 @@ public class Bullet : MonoBehaviour
     private void CheckCharacterHit(RaycastHit hit)
     {
         CharacterHealth hittedHealth = hit.collider.GetComponentInChildren<CharacterHealth>();
+
         if (hittedHealth)
         {
-            int damage = 10;
-            hittedHealth.AddHealthPoints(-damage);
+            hittedHealth.AddHealthPoints(-_damage);
         }
+    }
+    public void SetDamage(int value)
+    {
+        _damage = value;
     }
 }

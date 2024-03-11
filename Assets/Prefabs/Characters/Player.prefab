@@ -2360,6 +2360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25220b58b0c15d845921ced187d2be04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponId: 0
   _bulletPrefab: {fileID: 5889092821064333350, guid: 46fcf6245c0a2be4e8f52ca7fbb090d0, type: 3}
   _bulletDelay: 0.05
 --- !u!54 &6215079915695587845

@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class WeaponAiming : MonoBehaviour
+public abstract class WeaponAiming : MonoBehaviour
 {
+    public abstract WeaponIdentity Id { get; }
     private MultiAimConstraint[] _constraints;
     public void Init(Transform aim)
     {
@@ -24,15 +25,5 @@ public class WeaponAiming : MonoBehaviour
         constraintAimArray[0] = new WeightedTransform(aim, 1);
         return constraintAimArray;
     }
-   
-    void Start()
-    {
-        
-    }
-
-   
-    void Update()
-    {
-        
-    }
+    
 }

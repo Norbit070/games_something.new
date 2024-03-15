@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyRifle Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3056774675054385930, guid: 4be5aa51974363848a7a73699404742c, type: 3}
+      propertyPath: _weaponId
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3463441737684531515, guid: 4be5aa51974363848a7a73699404742c, type: 3}
       propertyPath: _weaponId
       value: 0

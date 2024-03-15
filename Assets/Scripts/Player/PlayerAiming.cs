@@ -6,30 +6,18 @@ public class PlayerAiming : CharacterAiming
     [SerializeField] private float _aimingSpeed = 10f;
 
     private Transform _aimTransform;
-    private RigBuilder _rigBuilder;
-    private WeaponAiming[] _weaponAimings;
+    
 
     private Camera _mainCamera;
 
     protected override void OnInit()
     {
+        base.OnInit();
         _mainCamera = Camera.main;
         _aimTransform = FindAnyObjectByType<PlayerAim>().transform;
-        _rigBuilder = GetComponentInChildren<RigBuilder>();
-        _weaponAimings = GetComponentsInChildren<WeaponAiming>(true);
-
-        InitWeaponAimings(_weaponAimings, _aimTransform);
+        InitWeaponAimings(_aimTransform);
     }
-
-    private void InitWeaponAimings(WeaponAiming[] weaponAimings, Transform aim)
-    {
-        for (int i = 0; i < weaponAimings.Length; i++)
-        {
-            weaponAimings[i].Init(aim);
-        }
-        _rigBuilder.Build();
-    }
-
+    
     private void FixedUpdate()
     {
         if (!IsActive)

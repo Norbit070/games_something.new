@@ -1032,7 +1032,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3947295052303534618}
   - component: {fileID: 6723348631706421285}
-  - component: {fileID: 6743320216265625479}
   m_Layer: 0
   m_Name: IkAiming
   m_TagString: Untagged
@@ -1072,18 +1071,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Effectors: []
---- !u!114 &6743320216265625479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916963457458288380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 637aa529984e4bd4ab295347ae2077ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1951225721268424520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,8 +1080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8859931881258014186}
-  - component: {fileID: 8871279468696969168}
-  - component: {fileID: 4221477114893104114}
+  - component: {fileID: 2410934634850746512}
   m_Layer: 0
   m_Name: PistolAiming
   m_TagString: Untagged
@@ -1120,7 +1106,7 @@ Transform:
   - {fileID: 9079894886230413316}
   m_Father: {fileID: 3947295052303534618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8871279468696969168
+--- !u!114 &2410934634850746512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1129,19 +1115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1951225721268424520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 637aa529984e4bd4ab295347ae2077ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4221477114893104114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951225721268424520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 637aa529984e4bd4ab295347ae2077ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ff14f272a2a0e64087eb8b45261c77e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2085635140751853857
@@ -2793,7 +2767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4080707534258013229}
-  - component: {fileID: 803321861853236745}
+  - component: {fileID: 6885324528863159569}
   m_Layer: 0
   m_Name: RifleAiming
   m_TagString: Untagged
@@ -2819,7 +2793,7 @@ Transform:
   - {fileID: 8469956416051136950}
   m_Father: {fileID: 3947295052303534618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &803321861853236745
+--- !u!114 &6885324528863159569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2828,7 +2802,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5529698220471095970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 637aa529984e4bd4ab295347ae2077ee, type: 3}
+  m_Script: {fileID: 11500000, guid: cd080cbb53737b149b1a0ad21c68f940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5617502558984545004
@@ -2962,8 +2936,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2300975378802049818}
-  - component: {fileID: 4627658814642537851}
-  - component: {fileID: 4869312399972129152}
+  - component: {fileID: 6267998784146006303}
   m_Layer: 0
   m_Name: ShotgunAiming
   m_TagString: Untagged
@@ -2989,7 +2962,7 @@ Transform:
   - {fileID: 3436326166515660182}
   m_Father: {fileID: 3947295052303534618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4627658814642537851
+--- !u!114 &6267998784146006303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2998,19 +2971,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5874706844067855099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 637aa529984e4bd4ab295347ae2077ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4869312399972129152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5874706844067855099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 637aa529984e4bd4ab295347ae2077ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 4100a4dc2e5f7274dac22ea890ac3e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5960589862535196210

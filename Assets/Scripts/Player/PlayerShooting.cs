@@ -10,6 +10,7 @@ public class PlayerShooting : CharacterShooting
     protected override void OnInit()
     {
         base.OnInit();
+        var test = this.GetComponentInChildren<BulletSpawnPoint>();
         _bulletSpawnPoint = GetComponentInChildren<BulletSpawnPoint>().transform;
         _bulletTimer = 0;
     }

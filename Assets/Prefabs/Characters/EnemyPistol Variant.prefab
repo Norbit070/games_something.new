@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPistol Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7128005859445099090, guid: b12fd606a89db2c46bc724ea12140cf4, type: 3}
+      propertyPath: _weaponId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8687591179683145827, guid: b12fd606a89db2c46bc724ea12140cf4, type: 3}
       propertyPath: _weaponId
       value: 1

@@ -7,19 +7,15 @@ public class EnemyAiming : CharacterAiming
     [SerializeField] private float _aimingRange = 20f;
     
     private Transform _aimTransform;
-    private RigBuilder _rigBuilder;
-    private WeaponAiming[] _weaponAimings;
     private Transform _targetTransform;
     private bool _isTargetInRange;
     protected override void OnInit()
     {
+        base.OnInit();
         _aimTransform = CreateAim().transform;
-        _rigBuilder = GetComponentInChildren<RigBuilder>();
-        _weaponAimings = GetComponentsInChildren<WeaponAiming>(true);
         _targetTransform = FindAnyObjectByType<Player>().transform;
-
+        InitWeaponAimings(_aimTransform);
         SetDefaultAimPosition();
-        InitWeaponAimings(_weaponAimings, _aimTransform);
     }
     
 
@@ -33,15 +29,7 @@ public class EnemyAiming : CharacterAiming
     {
         _aimTransform.position = transform.position + transform.forward + _aimDeltaPosition;
     }
-    private void InitWeaponAimings(WeaponAiming[] weaponAimings, Transform aim)
-    {
-        for (int i = 0; i < weaponAimings.Length; i++)
-        {
-            weaponAimings[i].Init(aim);
-        }
-        _rigBuilder.Build();
-    }
-
+    
     private void Update()
     {
         if (!IsActive)

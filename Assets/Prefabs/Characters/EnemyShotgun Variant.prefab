@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1609994014276833541, guid: cfe20382234dbed46b665d45e51b710f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2256298652362903633, guid: cfe20382234dbed46b665d45e51b710f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.93
@@ -47,6 +51,10 @@ PrefabInstance:
     - target: {fileID: 2256298652362903633, guid: cfe20382234dbed46b665d45e51b710f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129888493840163797, guid: cfe20382234dbed46b665d45e51b710f, type: 3}
+      propertyPath: _weaponId
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6722259962879312356, guid: cfe20382234dbed46b665d45e51b710f, type: 3}
       propertyPath: _weaponId

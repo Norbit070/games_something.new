@@ -22,6 +22,7 @@ public abstract class Character : MonoBehaviour
         }
 
         InitDeath();
+        InitWeaponSelection();
     }
 
     private void InitDeath()
@@ -40,6 +41,27 @@ public abstract class Character : MonoBehaviour
         for (int i = 0; i < _parts.Length; i++)
         {
             _parts[i].Stop();
+        }
+    }
+    private void InitWeaponSelection()
+    {
+        for (int i = 0; i < _parts.Length; i++)
+        {
+            if (_parts[i] is CharacterWeaponSelector weaponSelector)
+            {
+                weaponSelector.OnWeaponSelected += SelectWeapon;
+                weaponSelector.RefreshSelectedWeapon();
+            }
+        }
+    }
+    private void SelectWeapon(WeaponIdentity id)
+    {
+        for (int i = 0; i < _parts.Length; i++)
+        {
+            if (_parts[i] is IWeaponDependent weaponDependent)
+            {
+                weaponDependent.SetWeapon(id);
+            }
         }
     }
 

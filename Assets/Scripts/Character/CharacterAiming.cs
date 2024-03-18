@@ -1,6 +1,4 @@
 using UnityEngine;
-
-// Используем анимацию
 using UnityEngine.Animations.Rigging;
 
 public abstract class CharacterAiming : CharacterPart, IWeaponDependent

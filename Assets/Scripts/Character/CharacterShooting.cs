@@ -14,6 +14,9 @@ public abstract class CharacterShooting : CharacterPart, IWeaponDependent
     private Animator _animator;
     private Weapon[] _weapons;
     private Weapon _currentWeapon;
+    public Action<Weapon> OnSetCurrentWeapon;
+    protected abstract void Shooting();
+    protected abstract void Reloading();
     
     public float DamageMultiplier
     {
@@ -31,6 +34,7 @@ public abstract class CharacterShooting : CharacterPart, IWeaponDependent
     {
         _animator = GetComponentInChildren<Animator>();
         _weapons = GetComponentsInChildren<Weapon>(true);
+        InitWeapons(_weapons);
         SetDefaultDamageMultiplier();
     }
     protected void DamageBonusing()
@@ -46,40 +50,65 @@ public abstract class CharacterShooting : CharacterPart, IWeaponDependent
             SetDefaultDamageMultiplier();
         }
     }
-
-    protected void SpawnBullet(Bullet prefab, Transform spawnPoint)
-    {
-        Bullet bullet = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
-        InitBullet(bullet);
-    }
+    
     private void SetDefaultDamageMultiplier()
     {
         SetDamageMultiplier(DefaultDamageMutiplier, 0);
     }
-
-    private void InitBullet(Bullet bullet)
-    {
-        bullet.SetDamage((int) (_currentWeapon.Damage * _damageMultiplier));
-    }
+    
     private void SetCurrentWeapon(WeaponIdentity identity)
     {
         for (int i = 0; i < _weapons.Length; i++)
         {
             Weapon weapon = _weapons[i];
             bool isTargetId = weapon.Id == identity;
-            weapon.SetActive(isTargetId);
+
             if (isTargetId)
             {
                 _currentWeapon = weapon;
+                OnSetCurrentWeapon?.Invoke(weapon);
             }
+            weapon.SetActive(isTargetId);
         }
-        int id = WeaponIdentifier.GetAnimationIdByWeaponIdentify(identity);
 
+        int id = WeaponIdentifier.GetAnimationIdByWeaponIdentify(identity);
         _animator.SetInteger(WeaponIdKey, id);
     }
     public void SetWeapon(WeaponIdentity id)
     {
         _weaponId = id;
         SetCurrentWeapon(_weaponId);
+    }
+    private void Update()
+    {
+        if (!IsActive)
+        {
+            return;
+        }
+        Shooting();
+        Reloading();
+        DamageBonusing();
+    }
+    protected void Shoot()
+    {
+        _currentWeapon.Shoot(_damageMultiplier);
+    }
+
+    protected bool CheckHasBulletsInRow()
+    {
+        return _currentWeapon.CheckHasBulletsInRow();
+    }
+
+    protected void Reload()
+    {
+        _currentWeapon.Reload();
+    }
+
+    private void InitWeapons(Weapon[] weapons)
+    {
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            weapons[i].Init();
+        }
     }
 }

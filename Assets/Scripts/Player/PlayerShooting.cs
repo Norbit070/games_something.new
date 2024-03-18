@@ -1,50 +1,39 @@
+
 using UnityEngine;
 
 public class PlayerShooting : CharacterShooting
 {
-    [SerializeField] private Bullet _bulletPrefab;
-    [SerializeField] private float _bulletDelay = 0.05f;
-    private Transform _bulletSpawnPoint;
-    private float _bulletTimer;
+    [SerializeField] protected bool _autoReloading = true;
 
     protected override void OnInit()
     {
         base.OnInit();
-        var test = this.GetComponentInChildren<BulletSpawnPoint>();
-        _bulletSpawnPoint = GetComponentInChildren<BulletSpawnPoint>().transform;
-        _bulletTimer = 0;
     }
-
-    private void Update()
-    {
-        if (!IsActive)
-        {
-            return;
-        }
-
-        Shooting();
-        DamageBonusing();
-    }
-
-    private void Shooting()
+    protected override void Shooting()
     {
         if (Input.GetMouseButton(0))
         {
-            _bulletTimer += Time.deltaTime;
-
-            if (_bulletTimer >= _bulletDelay)
-            {
-                _bulletTimer = 0;
-
-                SpawnBullet(_bulletPrefab, _bulletSpawnPoint);
-            }
+            Shoot();
+            AutoReloading();
+        }
+    }
+    protected override void Reloading()
+    {
+        if ((!CheckHasBulletsInRow() && Input.GetMouseButton(0)) || Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
         }
     }
 
-    private void SpawnBullet()
+    private void AutoReloading()
     {
-        Debug.Log(_bulletSpawnPoint);
-        Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
+        if (!_autoReloading)
+        {
+            return;
+        }
+        if (!CheckHasBulletsInRow())
+        {
+            Reload();
+        }
     }
 }
- 
